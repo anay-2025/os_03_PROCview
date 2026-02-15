@@ -33,3 +33,59 @@ The main objective is to understand how system-level commands can be executed an
 - Displays final merged result directly in terminal  
 
 ---
+## 🧠 Core Concepts
+
+## ⚙️ Program Execution Flow
+
+1. Parent process creates `x1.txt`.  
+2. Child process executes `ps aux` and writes output to `x1.txt`.  
+3. Parent waits for child completion.  
+4. Parent creates `x2.txt`.  
+5. Another child executes `ps -eLf` and writes output to `x2.txt`.  
+6. Parent opens both files and reads their contents.  
+7. Data is merged into `merged.txt` with proper headings.  
+8. Final merged file is displayed using `cat merged.txt`.
+
+---
+
+## 📂 File Handling Strategy
+
+The program uses:
+
+- `open()` / `close()` for file descriptors  
+- `fopen()` for reading/writing streams  
+- `fgetc()` and `fputc()` for copying file contents  
+- `fprintf()` for formatted output  
+
+---
+
+## 📊 Learning Outcomes
+
+- Understanding Linux process creation and execution  
+- Output redirection using file descriptors  
+- Executing shell commands from C programs  
+- Managing parent–child synchronization  
+- Merging multiple command outputs using file handling  
+
+---
+
+## ⚠️ Limitations
+
+- **Sequential Execution:** Commands are executed one after another instead of concurrently.  
+- **Temporary Files:** Intermediate files (`x1.txt`, `x2.txt`) are required before merging.  
+- **No Filtering:** The merged output contains complete command outputs without processing.  
+- **Basic Error Handling:** Minimal checks for file or execution failures.  
+
+---
+
+## 👤 Contributors
+
+1. Bharath Reddy  
+2. Aman Das  
+3. Samam Roy  
+4. Saumya Kumari  
+5. Rinika Banarjee  
+6. Pedenla Bhutia  
+7. Sruthi Vaddadhi  
+8. Anay Bhattacharya (Group Leader)  
+9. Dhrub Sah
