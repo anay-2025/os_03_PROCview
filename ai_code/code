@@ -18,3 +18,26 @@ int main() {
         printf("Error opening files\n");
         return 1;
     }
+  fprintf(fp3, "=========== OUTPUT OF ps aux ===========\n\n");
+
+    // Copy contents of x1.txt
+    while ((ch = fgetc(fp1)) != EOF) {
+        fputc(ch, fp3);
+    }
+
+    fprintf(fp3, "\n\n=========== OUTPUT OF ps -eLf ===========\n\n");
+
+    // Copy contents of x2.txt
+    while ((ch = fgetc(fp2)) != EOF) {
+        fputc(ch, fp3);
+    }
+
+    fclose(fp1);
+    fclose(fp2);
+    fclose(fp3);
+
+    // Display merged file
+    system("cat merged.txt");
+
+    return 0;
+}
